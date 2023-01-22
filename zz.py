@@ -13,7 +13,7 @@ for i in range(1,1000):
         count -= 1
 
     if (i % 10 ==0):
-        print(s + 'Happy New Year 2022)
+        print(s + 'Happy New Year 2022')
     else:
         print(s + '*')
 
