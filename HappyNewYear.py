@@ -11,11 +11,11 @@ for i in range(1,1000):
     while (count > 0):
         s += ' '
         count -= 1
-
+    
     if (i % 10 ==0):
         print(s + 'Happy New Year 2022')
     else:
         print(s + '*')
-
+    
     s = ''
     time.sleep(0.3)
