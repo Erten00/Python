@@ -10,7 +10,7 @@ import os
 
 
 def play_again():
-  question = 'Do You want to play again? y = yes, n = no \n'
+  question = '\nDo You want to play again? y = yes, n = no \n'
   play_game = input(question)
   while play_game.lower() not in ['y', 'n']:
       play_game = input(question)
@@ -131,7 +131,7 @@ def play_hangman():
        hangman(word)
        play = play_again()
 
-   print('Thanks For Playing! We expect you back again!')
+   print('\nThanks For Playing! We expect you back again!')
    exit()
 
 
