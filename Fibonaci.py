@@ -18,5 +18,5 @@ def fib_memo(input_val):
 
 if __name__ == '__main__':
    print('======== Fibonacci Series ========')
-   for i in range(1, 11):
+   for i in range(1, 17):
        print(f'Fibonacci ({i}) : {fib_memo(i)}')
