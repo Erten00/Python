@@ -42,7 +42,6 @@ def hangman(word):
           letters.remove(guess)
           index = word.find(guess)
           display = display[:index] + guess + display[index + 1:]
-
       else:
           guessed.append(guess)
           count += 1
