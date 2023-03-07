@@ -1,6 +1,6 @@
 
-employeeFile = open("employees.txt", "a")
+employeeFile = open("employees.txt", "w")
 
-employeeFile.write("Toby - Human Resources")
+employeeFile.write("\nKelly - Customer Service")
 
 employeeFile.close()
