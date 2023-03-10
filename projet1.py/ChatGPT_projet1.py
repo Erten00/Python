@@ -34,7 +34,6 @@ while True:
         text = r.recognize_google(audio, language=lang_code)
 
         # output recognized speech
-        
         print(text)
 
         # Narator
@@ -46,3 +45,5 @@ while True:
         print("Sorry, I didn't understand what you said.")
     except sr.RequestError as e:
         print("Sorry, I couldn't request results from Google Speech Recognition service; {0}".format(e))
+
+        
