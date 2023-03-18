@@ -1,6 +1,5 @@
 import speech_recognition as sr
 import pyttsx3
-import time
 
 # initialize speech recognition engine and text-to-speech engine
 r = sr.Recognizer()
@@ -31,26 +30,19 @@ while True:
         audio = r.listen(source)
 
     try:
-        # recognize speech and output recognized speech
-        response = r.recognize_google(audio, language=lang_code, show_all=True)
-        text = response['alternative'][0]['transcript']
-        is_final = response['final']
+        # recognize speech
+        text = r.recognize_google(audio, language=lang_code)
 
-        if is_final:
-            print(text)
+        # output recognized speech
+        print(text)
 
-            if "stop program" in text.lower():
-                print("Stopping program...")
-                break
+        # Narator
 
-            # speak the recognized speech
-            engine.say(text)
-            engine.runAndWait()
-
-        # wait for 2 seconds before listening for new speech
-        time.sleep(2)
+        #engine.say(text)
+        #engine.runAndWait()
 
     except sr.UnknownValueError:
         print("Sorry, I didn't understand what you said.")
-    except sr.RequestError as e:
-        print("Sorry, I couldn't request results from Google Speech Recognition service; {0}".format(e))
+    
+    #except sr.RequestError as e:
+       #print("Sorry, I couldn't request results from Google Speech Recognition service; {0}".format(e))
