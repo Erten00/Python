@@ -16,7 +16,7 @@ lang_code = 'en-US'
 # main loop for listening to speech and outputting text
 while True:
     with sr.Microphone() as source:
-        print("Say something!")
+        print("\nSay something!\n")
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
 
