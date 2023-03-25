@@ -8,11 +8,11 @@ auth_token = 'c6afcdd6f509e40b97a1de41861215d4'
 client = Client(account_sid, auth_token)
 
 # Send a WhatsApp message to multiple recipients
-recipients = ['whatsapp:+381621594100', 'whatsapp:+381628908616']
+recipients = ['whatsapp:+381628908616']
 for recipient in recipients:
     message = client.messages.create(
-        body='!',
-        from_='whatsapp:+14155238886',  # This is your Twilio WhatsApp number
+        body='Test!',
+        from_='whatsapp:+381621594100',  # This is your Twilio WhatsApp number
         to=recipient
     )
 
