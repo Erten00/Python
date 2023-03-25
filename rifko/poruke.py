@@ -12,7 +12,7 @@ recipients = ['whatsapp:+381621594100', 'whatsapp:+']
 for recipient in recipients:
     message = client.messages.create(
         body='Hello from Python!',
-        from_='whatsapp:+381621594100',  # This is your Twilio WhatsApp number
+        from_='whatsapp:+14344258755',  # This is your Twilio WhatsApp number
         to=recipient
     )
 
