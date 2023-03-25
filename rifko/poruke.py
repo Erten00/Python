@@ -1,8 +1,8 @@
 from twilio.rest import Client
 
 # Twilio profil SID i token za autentifikaciju
-account_sid = 'AC0ebc1b09b72e2669b7612ab0b9baf297'
-auth_token = 'your_auth_token_here'
+account_sid = 'AC2b3ba8384c1c7b54075e20b12e81fcf4'
+auth_token = 'c6afcdd6f509e40b97a1de41861215d4'
 
 # Twilio klijent objekat
 client = Client(account_sid, auth_token)
@@ -12,7 +12,7 @@ recipients = ['whatsapp:+381621594100', 'whatsapp:+']
 for recipient in recipients:
     message = client.messages.create(
         body='Hello from Python!',
-        from_='whatsapp:+14155238886',  # This is your Twilio WhatsApp number
+        from_='whatsapp:+381621594100',  # This is your Twilio WhatsApp number
         to=recipient
     )
 
