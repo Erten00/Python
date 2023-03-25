@@ -8,7 +8,7 @@ auth_token = 'your_auth_token_here'
 client = Client(account_sid, auth_token)
 
 # Send a WhatsApp message to multiple recipients
-recipients = ['whatsapp:+1234567890', 'whatsapp:+9876543210']
+recipients = ['whatsapp:+381621594100', 'whatsapp:+']
 for recipient in recipients:
     message = client.messages.create(
         body='Hello from Python!',
