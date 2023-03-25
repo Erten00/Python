@@ -1,10 +1,10 @@
 from twilio.rest import Client
 
-# Your Twilio account SID and authentication token
+# Twilio profil SID i token za autentifikaciju
 account_sid = 'AC0ebc1b09b72e2669b7612ab0b9baf297'
 auth_token = 'your_auth_token_here'
 
-# Create a Twilio client object
+# Twilio klijent objekat
 client = Client(account_sid, auth_token)
 
 # Send a WhatsApp message to multiple recipients
