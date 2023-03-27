@@ -10,7 +10,7 @@ driver_path = '/path/to/chromedriver'
 chrome_binary_path = '/path/to/chrome/binary'
 
 # Phone number of the recipient (in international format)
-phone_number = '+381628908616'
+phone_number = '+381621594100'
 
 # Message to be sent
 message = 'Hello from Python!'
