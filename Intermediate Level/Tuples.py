@@ -1,2 +1,2 @@
 mytuple = "Max", 28, "Boston"
-print(mytuple)
+print(mytuple)  
