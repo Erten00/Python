@@ -17,15 +17,25 @@
 
 ###########################################
 
-odds = {1,3,5,7,9}
-evens = {0,2,4,6,8}
-primes = {2,3,5,7}
+#odds = {1,3,5,7,9}
+#evens = {0,2,4,6,8}
+#primes = {2,3,5,7}
 
-u = odds.union(evens) #Unija
-print(u)
+#u = odds.union(evens) #Unija
+#print(u)
 
-i = odds.intersection(evens) #Presek
-print(i)
+#i = odds.intersection(evens) #Presek
+#print(i)
 
-diff = odds.difference(primes)
-print(diff)
+#diff = odds.difference(primes) #Razlika 
+#print(diff)
+
+#o = odds.symmetric_difference(primes)
+#print(o)  
+
+###########################################
+
+a = frozenset([1,2,3,4])
+a.add(2)
+a.remove(4)
+print(a)
