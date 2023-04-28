@@ -22,7 +22,7 @@ print(my_string)
 
 my_string = "Hello World"
 
-# get character by referring to index
+# get character by referring to index   
 b = my_string[0]
 print(b)
 
