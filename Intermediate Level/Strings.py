@@ -87,6 +87,7 @@ print(new_message)
 my_string = "how are you doing"
 a = my_string.split() # default argument is " "
 print(a)
+
 my_string = "one,two,three"
 a = my_string.split(",")
 print(a)
