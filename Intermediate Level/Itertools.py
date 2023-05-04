@@ -13,7 +13,7 @@ print(list(prod)) # note that we convert the iterator to a list for printing
 from itertools import permutations
 
 perm = permutations([1, 2, 3])
-print(list(perm))
+print(list(perm))          
 
 # optional: the length of the permutation tuples
 perm = permutations([1, 2, 3], 2)
