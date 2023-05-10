@@ -113,7 +113,7 @@ qualname=simpleExample
 propagate=0
 
 [handler_consoleHandler]
-class=StreamHandler
+class = StreamHandler
 level=DEBUG
 formatter=simpleFormatter
 args=(sys.stdout,)
