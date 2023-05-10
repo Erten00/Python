@@ -98,7 +98,7 @@ age = my_dict["age"]
 class ValueTooHighError(Exception):
     pass
 
-# or add some more information for handlers
+# or add some information for handlers
 class ValueTooLowError(Exception):
     def __init__(self, message, value):
         self.message = message
