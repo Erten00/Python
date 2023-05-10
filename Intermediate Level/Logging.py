@@ -47,7 +47,7 @@ logger.info('HELLO')
 # -------------------------------------
 import logging
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
-import helper
+import helper 
 
 # --> No output when running main.py since the helper module logger does not propagate its messages to the root logger
 
