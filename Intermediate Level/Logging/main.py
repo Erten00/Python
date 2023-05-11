@@ -10,7 +10,6 @@ logging.error('This is an error message')
 logging.critical('This is a critical message')
 
 ##########################################
-# main.py
 # -------------------------------------
 import logging
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
@@ -20,15 +19,6 @@ import helper
 # helper - INFO - HELLO
 
 ##########################################
-
-# helper.py
-# -------------------------------------
-import logging
-logger = logging.getLogger(__name__)
-logger.propagate = False
-logger.info('HELLO')
-
-# main.py
 # -------------------------------------
 import logging
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
