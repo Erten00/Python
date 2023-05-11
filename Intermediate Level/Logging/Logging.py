@@ -1,15 +1,15 @@
 ##########################################
 
 import logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %H:%M:%S')
-# Now also debug messages will get logged with a different format.
-logging.debug('Debug message')
-
-# This would log to a file instead of the console.
-# logging.basicConfig(level=logging.DEBUG, filename='app.log')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                     datefmt='%m/%d/%Y %H:%M:%S')
+logging.debug('This is a debug message')
+logging.info('This is an info message')
+logging.warning('This is a warning message')
+logging.error('This is an error message')
+logging.critical('This is a critical message')
 
 ##########################################
-# main.py
 # -------------------------------------
 import logging
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
@@ -19,15 +19,6 @@ import helper
 # helper - INFO - HELLO
 
 ##########################################
-
-# helper.py
-# -------------------------------------
-import logging
-logger = logging.getLogger(__name__)
-logger.propagate = False
-logger.info('HELLO')
-
-# main.py
 # -------------------------------------
 import logging
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
@@ -73,37 +64,6 @@ class InfoFilter(logging.Filter):
 # Now only INFO level messages will be logged
 stream_handler.addFilter(InfoFilter())
 logger.addHandler(stream_handler)
-
-##########################################
-
-# logging.conf
-[loggers]
-keys=root,simpleExample
-
-[handlers]
-keys=consoleHandler
-
-[formatters]
-keys=simpleFormatter
-
-[logger_root]
-level=DEBUG
-handlers=consoleHandler
-
-[logger_simpleExample]
-level=DEBUG
-handlers=consoleHandler
-qualname=simpleExample
-propagate=0
-
-[handler_consoleHandler]
-class StreamHandler
-level=DEBUG
-formatter=simpleFormatter
-args=(sys.stdout,)
-
-[formatter_simpleFormatter]
-format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 ##########################################
 
