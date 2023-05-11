@@ -9,13 +9,6 @@ logging.debug('Debug message')
 # logging.basicConfig(level=logging.DEBUG, filename='app.log')
 
 ##########################################
-
-# helper.py
-# -------------------------------------
-import logging
-logger = logging.getLogger(__name__)
-logger.info('HELLO')
-
 # main.py
 # -------------------------------------
 import logging
