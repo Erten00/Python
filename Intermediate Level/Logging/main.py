@@ -67,37 +67,6 @@ logger.addHandler(stream_handler)
 
 ##########################################
 
-# logging.conf
-[loggers]
-keys=root,simpleExample
-
-[handlers]
-keys=consoleHandler
-
-[formatters]
-keys=simpleFormatter
-
-[logger_root]
-level=DEBUG
-handlers=consoleHandler
-
-[logger_simpleExample]
-level=DEBUG
-handlers=consoleHandler
-qualname=simpleExample
-propagate=0
-
-[handler_consoleHandler]
-class StreamHandler
-level=DEBUG
-formatter=simpleFormatter
-args=(sys.stdout,)
-
-[formatter_simpleFormatter]
-format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
-
-##########################################
-
 # Then use the config file in the code
 import logging
 import logging.config
