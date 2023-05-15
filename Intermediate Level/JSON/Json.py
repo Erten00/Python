@@ -9,25 +9,7 @@ print(person_json2)
 with open('person.json', 'w') as f:
     json.dump(person, f, indent=4) # you can also specify indent etc...
 
-##########################################
-# Decoding
 
-# Possible but decoded as a dictionary
-z = json.loads(zJSON)
-print(type(z))
-print(z)
-
-def decode_complex(dct):
-    if complex.__name__ in dct:
-        return complex(dct["real"], dct["imag"])
-    return dct
-
-# Now the object is of type complex after decoding
-z = json.loads(zJSON, object_hook=decode_complex)
-print(type(z))
-print(z)
-
-##########################################
 #Encoding
 
 def encode_complex(z):
@@ -53,6 +35,24 @@ class ComplexEncoder(JSONEncoder):
 z = 5 + 9j
 zJson = ComplexEncoder().encode(z)
 print(zJSON)
+
+##########################################
+# Decoding
+
+# Possible but decoded as a dictionary
+z = json.loads(zJSON)
+print(type(z))
+print(z)
+
+def decode_complex(dct):
+    if complex.__name__ in dct:
+        return complex(dct["real"], dct["imag"])
+    return dct
+
+# Now the object is of type complex after decoding
+z = json.loads(zJSON, object_hook=decode_complex)
+print(type(z))
+print(z)
 
 ##########################################
 
