@@ -168,3 +168,12 @@ say_hello(5)
 say_hello(5)
 
 #######################################################
+
+# Some typical use cases
+# Use a timer decorator to calculate the execution time of a function
+# Use a debug decorator to print out some more information about the called function and its arguments
+# Use a check decorator to check if the arguments fulfill some requirements and adapt the bevaviour accordingly
+# Register functions (plugins)
+# Slow down code with `time.sleep()` to check network behaviour
+# Cache the return values for memoization (https://en.wikipedia.org/wiki/Memoization)
+# Add information or update a state
