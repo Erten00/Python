@@ -1,4 +1,4 @@
-#######################################################
+######################################################
 def countdown(num):
     print('Starting')
     while num > 0:
@@ -18,14 +18,14 @@ print(next(cd))
 # this will raise a StopIteration
 print(next(cd))
 
-#######################################################
+######################################################
 
 # you can iterate over a generator object with a for in loop
 cd = countdown(3)
 for x in cd:
     print(x)
 
-#######################################################
+######################################################
 
 # you can use it for functions that take iterables as input
 cd = countdown(3)
@@ -36,7 +36,7 @@ cd = countdown(3)
 sorted_cd = sorted(cd)
 print(sorted_cd)
 
-#######################################################
+######################################################
 
 # without a generator, the complete sequence has to be stored here in a list
 def firstn(n):
