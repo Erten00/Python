@@ -4,8 +4,7 @@ from threading import Thread
 def square_numbers():
     for i in range(1000):
         result = i * i
-
-        
+ 
 if __name__ == "__main__":        
     threads = []
     num_threads = 10
@@ -28,7 +27,6 @@ if __name__ == "__main__":
 
 from multiprocessing import Process
 import os
-
 
 def square_numbers():
     for i in range(1000):
