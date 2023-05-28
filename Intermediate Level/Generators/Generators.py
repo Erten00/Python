@@ -37,7 +37,7 @@ sorted_cd = sorted(cd)
 print(sorted_cd)
 
 ######################################################
-
+    
 # without a generator, the complete sequence has to be stored here in a list
 def firstn(n):
     num, nums = 0, []
