@@ -1,4 +1,4 @@
-##########################################
+#########################################
 from threading import Thread
 
 def square_numbers():
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     for thread in threads:
         thread.join()
 
-##########################################
+#########################################
 
 from multiprocessing import Process
 import os
@@ -51,4 +51,4 @@ if __name__ == "__main__":
     for process in processes:
         process.join()
 
-##########################################
+#########################################
