@@ -1,5 +1,10 @@
 ########################################
 
+# - shallow copy: one level deep, only references of nested child objects
+# - deep copy: full independent copy
+
+########################################
+
 list_a = [1, 2, 3, 4, 5]
 list_b = list_a
 
