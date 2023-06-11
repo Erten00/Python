@@ -74,13 +74,13 @@ while playing == "yes" or "y":
         else:
             player_sum = player_sum + 1
 
-    print("player: " + player_cards[0] + " " + player_cards[1], end=" ")
+    print("player: " + player_cards[0] + " , " + player_cards[1], end=" : ")
     print(player_sum)
-    print("Dealer: " + dealer_cards[0], end=" ")
+    print("Dealer: " + dealer_cards[0], end="  : ")
     print(dealer_cards_value[0])
 
     while player_sum < 21:  # Player score is under 21
-        choice = input("stand or hit ")
+        choice = input("Stand or Hit : ")
         if choice == "stand":
             print("Player: ", end="")
             print(player_cards, end="")
