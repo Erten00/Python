@@ -1,5 +1,3 @@
-## Original code https://github.com/GustavSkou/Blackjack
-
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QLineEdit
 from PyQt5.QtCore import Qt
