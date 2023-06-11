@@ -78,12 +78,12 @@ class BlackjackGame(QWidget):
 
                 self.label_player.setText(f"Player's Hand: {', '.join(self.player_cards)}")
                 self.label_dealer.setText(f"Dealer's Hand: {self.dealer_cards[0]}, ?")
-                self.label_sum.setText(f"Sum: {self.player_sum}")
+                self.label_sum.setText(f"Sum: {self.player_sum[0]}")
 
     def hit(self):
         self.drawCard(self.player_cards, self.player_sum)
         self.label_player.setText(f"Player's Hand: {', '.join(self.player_cards)}")
-        self.label_sum.setText(f"Sum: {self.player_sum}")
+        self.label_sum.setText(f"Sum: {self.player_sum[0]}")
 
         if self.player_sum[0] > 21:
             self.endGame("Crash")
