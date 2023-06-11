@@ -1,3 +1,5 @@
+## Original code https://github.com/GustavSkou/Blackjack
+
 import random
 random.seed()
 import Cards
