@@ -125,7 +125,7 @@ class BlackjackGame(QWidget):
         self.button_start.setEnabled(True)
 
         if result == "Win":
-            self.money += 20
+            self.money += 200
         elif result == "Tie":
             self.money += 10
 
