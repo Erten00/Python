@@ -117,7 +117,9 @@ class BlackjackGame(QWidget):
         if hand is self.dealer_cards:
             self.dealer_sum[0] = hand_sum[0]
 
-        self.player_sum[0] = hand_sum[0]
+        # Update the player_sum attribute when drawing cards for the player
+        if hand is self.player_cards:
+            self.player_sum[0] = hand_sum[0]
 
     def endGame(self, result):
         self.button_hit.setEnabled(False)
