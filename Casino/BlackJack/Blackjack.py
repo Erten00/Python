@@ -14,8 +14,8 @@ class BlackjackGame(QWidget):
         self.money = 100
         self.money_won = 0
         self.money_lost = 0
-        self.player_sum = 0
-        self.dealer_sum = 0
+        self.player_sum = [0]
+        self.dealer_sum = [0]
         self.player_cards = []
         self.dealer_cards = []
 
@@ -68,8 +68,8 @@ class BlackjackGame(QWidget):
 
                 self.player_cards = []
                 self.dealer_cards = []
-                self.player_sum = [0]
-                self.dealer_sum = [0]
+                self.player_sum[0] = 0
+                self.dealer_sum[0] = 0
 
                 self.drawCard(self.player_cards, self.player_sum)
                 self.drawCard(self.player_cards, self.player_sum)
@@ -112,7 +112,14 @@ class BlackjackGame(QWidget):
             card_value = 1
 
         hand_sum[0] += card_value
-        self.player_sum = hand_sum
+
+        # Update the dealer_sum attribute when drawing cards for the dealer
+        if hand is self.dealer_cards:
+            self.dealer_sum[0] = hand_sum[0]
+
+        # Update the player_sum attribute when drawing cards for the player
+        if hand is self.player_cards:
+            self.player_sum[0] = hand_sum[0]
 
     def endGame(self, result):
         self.button_hit.setEnabled(False)
@@ -120,7 +127,7 @@ class BlackjackGame(QWidget):
         self.button_start.setEnabled(True)
 
         if result == "Win":
-            self.money *= 2
+            self.money += 200
         elif result == "Tie":
             self.money += 10
 
