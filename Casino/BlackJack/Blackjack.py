@@ -10,7 +10,7 @@ money = 100
 money_won = 0
 money_lost = 0
 
-playing = input("Is it gambling time? (yes/no) ")
+playing = input("Is it Blackjack time? (yes/no) ")
 
 while playing == "yes" or playing == "y":
     # Creating empty lists for the hands to be generated into
