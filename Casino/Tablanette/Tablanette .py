@@ -1,15 +1,17 @@
 import random
 
-# Create a deck of cards
+# Create two decks of cards
 ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
-deck = [(rank) for rank in ranks]
+deck1 = [(rank) for rank in ranks]
+deck2 = [(rank) for rank in ranks]
 
-# Shuffle the deck
-random.shuffle(deck)
+# Shuffle the decks
+random.shuffle(deck1)
+random.shuffle(deck2)
 
 # Deal the cards to the players
-player1_hand = deck[:4]
-player2_hand = deck[4:8]
+player1_hand = deck1[:4]
+player2_hand = deck2[:4]
 
 # Play the game
 player1_score = 0
@@ -39,14 +41,18 @@ while True:
 
     # Check for a match
     if card == card_opponent:
-        if len(deck) >= 2:
-            player1_hand.extend(deck[:2])
-            player2_hand.extend(deck[2:4])
-            deck = deck[4:]
+        if len(deck1) >= 2 and len(deck2) >= 2:
+            player1_hand.extend([deck1.pop(0), deck2.pop(0)])
+            player2_hand.extend([deck1.pop(0), deck2.pop(0)])
+        elif len(deck1) > 0 and len(deck2) > 0:
+            player1_hand.extend([deck1.pop(0), deck2.pop(0)])
+            player2_hand.extend([deck1.pop(), deck2.pop()])
+        elif len(deck1) == 0 and len(deck2) > 0:
+            player2_hand.extend([deck2.pop(0), deck2.pop()])
+        elif len(deck1) > 0 and len(deck2) == 0:
+            player1_hand.extend([deck1.pop(0), deck1.pop()])
         else:
-            player1_hand.extend(deck)
-            player2_hand.extend(deck)
-            deck = []
+            break
 
     # Check if any player has no cards left
     if not player1_hand:
@@ -58,18 +64,19 @@ while True:
         print("Player 2 wins the trick!")
         board = []
 
-    # Check if all four cards have been played
-    if len(player1_hand) == 0 and len(player2_hand) == 0:
-        if len(deck) >= 4:
-            player1_hand = deck[:4]
-            player2_hand = deck[4:8]
-            deck = deck[8:]
-        elif len(deck) > 0:
-            player1_hand = deck[:len(deck) // 2]
-            player2_hand = deck[len(deck) // 2:]
-            deck = []
-        else:
-            break
+    # Check if both players have empty hands
+    if not player1_hand and len(deck1) >= 4:
+        player1_hand = deck1[:4]
+        deck1 = deck1[4:]
+    elif not player1_hand and len(deck1) > 0:
+        player1_hand = deck1[:]
+        deck1 = []
+    if not player2_hand and len(deck2) >= 4:
+        player2_hand = deck2[:4]
+        deck2 = deck2[4:]
+    elif not player2_hand and len(deck2) > 0:
+        player2_hand = deck2[:]
+        deck2 = []
 
     print()
     print("Scores:")
