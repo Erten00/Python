@@ -44,13 +44,13 @@ while True:
     print("Board:", board)
 
     # Check if player 1 played the last card on the board
-    if card == board[-1]:
+    if card == board[-1] and card_opponent != board[-1]:
         player1_inventory.extend(board)
         board = []
 
     # Check if player 2 played the last card on the board
-    if card_opponent == board[-1]:
-        player2_inventory.extend(board)
+    if card_opponent == board[-1] and card != board[-1]:
+        player2_score += len(board)
         board = []
 
     # Check for a match

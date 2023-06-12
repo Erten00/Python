@@ -25,3 +25,13 @@ random.shuffle(deck2)
 # Deal the cards to the players
 player1_hand = deck1[:4]
 player2_hand = deck2[:4]
+
+# Check if player 1 played the last card on the board
+    if card == board[-1] and card_opponent != board[-1]:
+        player1_inventory.extend(board)
+        board = []
+
+    # Check if player 2 played the last card on the board
+    if card_opponent == board[-1] and card != board[-1]:
+        player2_score += len(board)
+        board = []
