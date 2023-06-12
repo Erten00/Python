@@ -13,6 +13,10 @@ random.shuffle(deck2)
 player1_hand = deck1[:4]
 player2_hand = deck2[:4]
 
+# Initialize inventories for both players
+player1_inventory = []
+player2_inventory = []
+
 # Play the game
 player1_score = 0
 player2_score = 0
@@ -39,6 +43,16 @@ while True:
 
     print("Board:", board)
 
+    # Check if player 1 played the last card on the board
+    if card == board[-1]:
+        player1_inventory.extend(board)
+        board = []
+
+    # Check if player 2 played the last card on the board
+    if card_opponent == board[-1]:
+        player2_inventory.extend(board)
+        board = []
+
     # Check for a match
     if card == card_opponent:
         if len(deck1) >= 2 and len(deck2) >= 2:
@@ -57,11 +71,9 @@ while True:
     # Check if any player has no cards left
     if not player1_hand:
         player1_score += len(board)
-        print("Player 1 wins the trick!")
         board = []
     if not player2_hand:
         player2_score += len(board)
-        print("Player 2 wins the trick!")
         board = []
 
     # Check if both players have empty hands
@@ -82,6 +94,9 @@ while True:
     print("Scores:")
     print("Player 1:", player1_score)
     print("Player 2:", player2_score)
+    print()
+    print("Player 1's Inventory:", player1_inventory)
+    print("Player 2's Inventory:", player2_inventory)
     print()
 
 # Determine the winner of the game
