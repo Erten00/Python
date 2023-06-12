@@ -35,7 +35,7 @@ while True:
     card = player2_hand.pop(card_index)
     board.append(card)
 
-    print("\nBoard:", board)
+    print("Board:", board)
 
     # Check if any player has no cards left
     if not player1_hand:
@@ -48,7 +48,7 @@ while True:
         else:
             player1_hand = deck[:]
             deck = []
-    elif not player2_hand:
+    if not player2_hand:
         player2_score += len(board)
         print("Player 2 wins the trick!")
         board = []
