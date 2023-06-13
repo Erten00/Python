@@ -36,5 +36,3 @@ except sr.UnknownValueError:
     print("Sorry, I didn't understand what you said.")
 except sr.RequestError as e:
     print("Sorry, I couldn't request results from Google Speech Recognition service; {0}".format(e))
-
-    #something random
