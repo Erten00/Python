@@ -42,7 +42,7 @@ while True:
     card_opponent = player2_hand.pop(card_index)
     board.append(card_opponent)
 
-    print("Board:", board)
+    print("\nBoard:", board)
 
     # Check for a match
     if card == card_opponent:
