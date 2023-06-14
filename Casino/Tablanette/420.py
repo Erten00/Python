@@ -35,3 +35,66 @@ player2_hand = deck2[:4]
     if card_opponent == board[-1] and card != board[-1]:
         player2_score += len(board)
         board = []
+
+
+
+import random
+
+# Create a deck of cards
+suits = ['❤️', '💎', '♣️', '♠️']
+ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+deck = [(rank, suit) for suit in suits for rank in ranks]
+
+# Shuffle the decks
+random.shuffle(deck1)
+random.shuffle(deck2)
+
+# Deal the cards to the players
+player1_hand = deck1[:4]
+player2_hand = deck2[:4]
+
+# Play the game
+tricks = 6  # Number of tricks to play
+
+player1_score = 0
+player2_score = 0
+
+for trick in range(tricks):
+    table = []
+    
+    # Player 1's turn
+    print("Player 1's turn:")
+    print("Your hand:", player1_hand)
+    card_index = int(input("Choose a card to play (enter the index): "))
+    card = player1_hand.pop(card_index)
+    table.append(card)
+    
+    # Player 2's turn
+    print("Player 2's turn:")
+    print("Your hand:", player2_hand)
+    card_index = int(input("Choose a card to play (enter the index): "))
+    card = player2_hand.pop(card_index)
+    table.append(card)
+    
+    # Determine the winner of the trick
+    winner = table.index(max(table, key=lambda x: (ranks.index(x[0]), suits.index(x[1]))))
+    if winner == 0:
+        player1_score += 1
+        print("Player 1 wins the trick!")
+    else:
+        player2_score += 1
+        print("Player 2 wins the trick!")
+    
+    print()
+    print("Scores:")
+    print("Player 1:", player1_score)
+    print("Player 2:", player2_score)
+    print()
+
+# Determine the winner of the game
+if player1_score > player2_score:
+    print("Player 1 wins the game!")
+elif player2_score > player1_score:
+    print("Player 2 wins the game!")
+else:
+    print("It's a tie!")
