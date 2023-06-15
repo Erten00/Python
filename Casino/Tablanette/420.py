@@ -40,18 +40,6 @@ player2_hand = deck2[:4]
 
 import random
 
-# Create a deck of cards
-suits = ['❤️', '💎', '♣️', '♠️']
-ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
-deck = [(rank, suit) for suit in suits for rank in ranks]
-
-# Shuffle the decks
-random.shuffle(deck1)
-random.shuffle(deck2)
-
-# Deal the cards to the players
-player1_hand = deck1[:4]
-player2_hand = deck2[:4]
 
 # Play the game
 tricks = 6  # Number of tricks to play
