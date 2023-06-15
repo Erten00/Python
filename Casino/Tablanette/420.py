@@ -24,10 +24,6 @@ import random
         board = []
 
 
-
-import random
-
-
 # Play the game
 tricks = 6  # Number of tricks to play
 
