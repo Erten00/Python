@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLay
 from PyQt5.QtCore import Qt
 import random
 import Cards
+import sqlite3
 
 
 class BlackjackGame(QWidget):
