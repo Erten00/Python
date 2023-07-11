@@ -1,4 +1,4 @@
-def add_time(start_time, duration, start_day=None):
+def add_time(start_time, duration, start_day=None): 
     # Parse the start time
     start_components = start_time.split(':')
     start_hour = int(start_components[0])
