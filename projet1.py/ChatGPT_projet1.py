@@ -9,7 +9,6 @@ engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)  # set voice to default
 
-# set up language for speech recognition
 lang_code = 'en-US'
 
 # listen to speech and output text
