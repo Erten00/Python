@@ -5,7 +5,6 @@ import pyttsx3
 r = sr.Recognizer()
 engine = pyttsx3.init()
 
-# set up text-to-speech engine
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)  # set voice to default
 
