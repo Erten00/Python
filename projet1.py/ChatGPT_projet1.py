@@ -10,7 +10,6 @@ engine.setProperty('voice', voices[0].id)  # set voice to default
 
 lang_code = 'en-US'
 
-# listen to speech and output text
 with sr.Microphone() as source:
     print("\nSay something! \n")
     r.adjust_for_ambient_noise(source)
