@@ -79,7 +79,6 @@ def deposit():
                 print("Amount must be greater than 0.")
         else:
             print("Please enter a number.")
-
     return amount
 
 
@@ -95,7 +94,6 @@ def get_number_of_lines():
                 print("Enter a valid number of lines.")
         else:
             print("Please enter a number.")
-
     return lines
 
 
@@ -110,7 +108,6 @@ def get_bet():
                 print(f"Amount must be between ${MIN_BET} - ${MAX_BET}.")
         else:
             print("Please enter a number.")
-
     return amount
 
 
@@ -143,8 +140,6 @@ def main():
         if answer == "q":
             break
         balance += spin(balance)
-
     print(f"You left with ${balance}")
-
 
 main()
