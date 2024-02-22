@@ -1,38 +1,50 @@
-def add_debt(name, debt, debts_dict):
-    """
-    Add a debt for a person to the debts dictionary.
-    """
-    debts_dict[name] = debt
+import tkinter as tk
+import sqlite3
 
+def add_debt():
+    name = name_entry.get()
+    debt = float(debt_entry.get())
+    # Insert the debt into the database
+    cursor.execute("INSERT INTO debts (name, debt) VALUES (?, ?)", (name, debt))
+    connection.commit()
+    update_display()
 
-def main():
-    debts = {}  # Dictionary to store debts
+def update_display():
+    # Retrieve debts from the database
+    cursor.execute("SELECT name, debt FROM debts")
+    debt_data = cursor.fetchall()
+    display_text.set("\n".join([f"{name}: ${debt}" for name, debt in debt_data]))
 
-    while True:
-        print("\n1. Add Debt\n2. View Debts\n3. Exit")
-        choice = input("Enter your choice (1/2/3): ")
+# Connect to the SQLite database (creates a new database if it doesn't exist)
+connection = sqlite3.connect("debts.db")
+cursor = connection.cursor()
 
-        if choice == '1':
-            name = input("Enter the name of the person: ")
-            debt = float(input("Enter the debt amount: "))
-            add_debt(name, debt, debts)
-            print("Debt added successfully!")
+# Create a table to store debts if it doesn't exist
+cursor.execute("CREATE TABLE IF NOT EXISTS debts (name TEXT, debt REAL)")
 
-        elif choice == '2':
-            print("\nDebts:")
-            if debts:
-                for name, debt in debts.items():
-                    print(f"{name}: ${debt}")
-            else:
-                print("No debts recorded yet.")
+# Create the main application window
+root = tk.Tk()
+root.title("Debt Tracker")
 
-        elif choice == '3':
-            print("Exiting program.")
-            break
+# Create and place widgets
+tk.Label(root, text="Name:").grid(row=0, column=0)
+tk.Label(root, text="Debt:").grid(row=1, column=0)
 
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
+name_entry = tk.Entry(root)
+name_entry.grid(row=0, column=1)
 
+debt_entry = tk.Entry(root)
+debt_entry.grid(row=1, column=1)
 
-if __name__ == "__main__":
-    main()
+add_button = tk.Button(root, text="Add Debt", command=add_debt)
+add_button.grid(row=2, column=0, columnspan=2)
+
+display_text = tk.StringVar()
+display_label = tk.Label(root, textvariable=display_text)
+display_label.grid(row=3, column=0, columnspan=2)
+
+# Run the application
+root.mainloop()
+
+# Close the database connection when the application is closed
+connection.close()
