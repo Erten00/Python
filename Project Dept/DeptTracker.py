@@ -1,47 +1,92 @@
 import tkinter as tk
 import sqlite3
 
-def add_debt():
-    name = name_entry.get()
-    debt = float(debt_entry.get())
-    # Insert the debt into the database
-    cursor.execute("INSERT INTO debts (name, debt) VALUES (?, ?)", (name, debt))
-    connection.commit()
-    update_display()
+class CustomTkinter:
+    def __init__(self, master=None):
+        self.master = master
 
-def update_display():
-    # Retrieve debts from the database
-    cursor.execute("SELECT name, debt FROM debts")
-    debt_data = cursor.fetchall()
-    display_text.set("\n".join([f"{name}: ${debt}" for name, debt in debt_data]))
+    def Label(self, text='', **kwargs):
+        label = tk.Label(self.master, text=text, **kwargs)
+        label.pack()
+        return label
 
-# Connect to the SQLite database (creates a new database if it doesn't exist)
-connection = sqlite3.connect("debts.db")
-cursor = connection.cursor()
+    def Entry(self, **kwargs):
+        entry = tk.Entry(self.master, **kwargs)
+        entry.pack()
+        return entry
 
-# Create a table to store debts if it doesn't exist
-cursor.execute("CREATE TABLE IF NOT EXISTS debts (name TEXT, debt REAL)")
+    def Button(self, text='', command=None, **kwargs):
+        button = tk.Button(self.master, text=text, command=command, **kwargs)
+        button.pack()
+        return button
+
+    def OptionMenu(self, options, **kwargs):
+        option_var = tk.StringVar(self.master)
+        option_var.set(options[0])
+        option_menu = tk.OptionMenu(self.master, option_var, *options)
+        option_menu.pack()
+        return option_var
+
+# Create a custom Tkinter-like library instance
+ctk = CustomTkinter()
 
 # Create the main application window
 root = tk.Tk()
 root.title("Debt Tracker")
 
+# Set fullscreen
+root.attributes('-fullscreen', True)
+
+# Get screen width and height
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# Calculate position for centered window
+x_position = (screen_width - root.winfo_reqwidth()) / 2
+y_position = (screen_height - root.winfo_reqheight()) / 2
+
+# Set geometry to center window
+root.geometry("+%d+%d" % (x_position, y_position))
+
+# Connect to the SQLite database
+connection = sqlite3.connect("debts.db")
+cursor = connection.cursor()
+
 # Create and place widgets
-tk.Label(root, text="Name:").grid(row=0, column=0)
-tk.Label(root, text="Debt:").grid(row=1, column=0)
+ctk.Label(text="Debtor:")
+ctk.Label(text="Creditor:")
+ctk.Label(text="Debt:")
 
-name_entry = tk.Entry(root)
-name_entry.grid(row=0, column=1)
+# Pre-specified debtor name
+debtor_options = ["John", "Jane", "Alice"]  # Add your list of debtor names here
+debtor_var = ctk.OptionMenu(options=debtor_options)
 
-debt_entry = tk.Entry(root)
-debt_entry.grid(row=1, column=1)
+creditor_entry = ctk.Entry()
+debt_entry = ctk.Entry()
 
-add_button = tk.Button(root, text="Add Debt", command=add_debt)
-add_button.grid(row=2, column=0, columnspan=2)
+def add_debt():
+    debtor = debtor_var.get()
+    creditor = creditor_entry.get()
+    debt = float(debt_entry.get())
+    insert_debt(debtor, creditor, debt)  # Call the function to insert debt into the database
+    update_display()
+
+def insert_debt(debtor, creditor, debt):
+    # Insert the debt into the database
+    cursor.execute("INSERT INTO debts (debtor, creditor, debt) VALUES (?, ?, ?)", (debtor, creditor, debt))
+    connection.commit()
+
+def update_display():
+    # Retrieve debts from the database
+    cursor.execute("SELECT debtor, creditor, debt FROM debts")
+    debt_data = cursor.fetchall()
+    display_text.set("\n".join([f"{debtor} owes {creditor}: ${debt}" for debtor, creditor, debt in debt_data]))
+
+ctk.Button(text="Add Debt", command=add_debt)
 
 display_text = tk.StringVar()
-display_label = tk.Label(root, textvariable=display_text)
-display_label.grid(row=3, column=0, columnspan=2)
+display_label = ctk.Label(textvariable=display_text)
+display_label.pack()
 
 # Run the application
 root.mainloop()
